@@ -1,5 +1,7 @@
 ![New Project(2)](https://github.com/user-attachments/assets/98201835-7370-4592-8d5f-8728bd8994c3)
 
+HeartGot is a tool for obtaining syscall numbers (SSNs) using *Capstone Framework* for disassembling and *PeFile* for search functions and getting opcodes.
+
 # Installation
 
 ## [NTDLL download](https://www.dll-files.com/ntdll.dll.html)
@@ -90,6 +92,12 @@ __stdcall void syscall_NtWriteVirtualMemory(
 
 #endif
 ```
+
+## How to compile header?
+
+`<compiler> heartgot.h -masm=intel -lntdll`
+
+for example `x86_64-w64-mingw32-gcc heartgot.h -masm=intel -lntdll`
 
 # Showcase
 
