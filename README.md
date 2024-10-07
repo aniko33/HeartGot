@@ -63,7 +63,7 @@ options:
 )
 
 
-__stdcall void syscall_NtQueryInformationWorkerFactory(
+__stdcall NTSTATUS syscall_NtQueryInformationWorkerFactory(
 			_In_ HANDLE WorkerFactoryHandle,
 			_In_ WORKERFACTORYINFOCLASS WorkerFactoryInformationClass,
 			_Out_ PVOID WorkerFactoryInformation,
@@ -72,7 +72,7 @@ __stdcall void syscall_NtQueryInformationWorkerFactory(
 		) {
 	GEN_SYSCALL64("0x14f");
 }
-__stdcall void syscall_NtOpenProcess(
+__stdcall NTSTATUS syscall_NtOpenProcess(
 			_Out_ PHANDLE ProcessHandle,
 			_In_ ACCESS_MASK DesiredAccess,
 			_In_ POBJECT_ATTRIBUTES ObjectAttributes,
@@ -80,7 +80,7 @@ __stdcall void syscall_NtOpenProcess(
 		) {
 	GEN_SYSCALL64("0x26");
 }
-__stdcall void syscall_NtWriteVirtualMemory(
+__stdcall NTSTATUS syscall_NtWriteVirtualMemory(
 			_In_ HANDLE ProcessHandle,
 			_In_opt_ PVOID BaseAddress,
 			_In_ CONST VOID* Buffer,
@@ -95,7 +95,7 @@ __stdcall void syscall_NtWriteVirtualMemory(
 
 ## How to compile header?
 
-`<compiler> heartgot.h -masm=intel -lntdll`
+`<compiler> heartgot.h -masm=intel -lntdll -fomit-frame-pointer`
 
 for example `x86_64-w64-mingw32-gcc heartgot.h -masm=intel -lntdll`
 
