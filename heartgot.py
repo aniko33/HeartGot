@@ -39,7 +39,7 @@ def generate_func(name: str, ssn: str | int) -> str:
         errorf("Function signature not found")
         quit(1)
 
-    func_signature = "__stdcall void syscall_" + func_signature.group().strip()
+    func_signature = "__stdcall NTSTATUS syscall_" + func_signature.group().strip()
 
     return formatf(func_signature, "{\n" + f"\tGEN_SYSCALL64(\"{ssn}\");" + "\n}")
 
